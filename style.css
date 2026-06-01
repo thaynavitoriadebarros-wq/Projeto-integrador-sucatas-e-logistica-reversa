@@ -162,7 +162,7 @@ html {
 .imagem-espaco {
     flex: 1;
     width: 100%;
-    max-width: 520px;
+    max-width: 300px;
     display: flex;
     justify-content: center;
 }
