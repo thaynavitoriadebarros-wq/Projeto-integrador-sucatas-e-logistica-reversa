@@ -205,7 +205,7 @@ input:focus-visible {
     outline-offset: 2px;
 }
 
-/* MODO ESCURO: aplicar a classe no <body> (ex: <body class="modo-escuro">) */
+/* MODO ESCURO: aplicar a classe no <body> (ex: <body class=\"modo-escuro\">) */
 body.modo-escuro {
     background-color: #333;
     color: #ffffff;
@@ -215,8 +215,178 @@ body.modo-escuro .invertido {
     background-color: #444;
 }
 
+
+/* ========================================================================== */
+/* 🆕 ITENS ADICIONAIS: ESTRUTURA E ELEMENTOS DA PÁGINA DE COLETA (MAPA & SIDEBAR) */
+/* ========================================================================== */
+
+/* Espaçamento do layout lado a lado (Menu Lateral e Mapa) */
+.layout-coleta {
+    display: flex;
+    height: calc(100vh - 120px); 
+    width: 100%;
+    max-width: 1246px;
+    margin: 20px auto;
+    padding: 0 15px;
+    gap: 20px;
+}
+
+/* Barra Lateral de Polos */
+.sidebar-coleta {
+    width: 360px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sidebar-coleta h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 5px;
+    font-size: 22px;
+    text-align: left;
+}
+
+/* Grupos do Acordeão Dinâmico */
+.state-group {
+    margin-bottom: 12px;
+}
+
+.state-title {
+    background-color: #f4f4f4;
+    color: var(--color-primary);
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+    font-size: 15px;
+    user-select: none;
+}
+
+.state-title:hover {
+    background-color: #e9ecef;
+}
+
+.city-list {
+    padding-left: 5px;
+    margin-top: 5px;
+}
+
+/* Items individuais das Cidades e Endereços */
+.city-item {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+}
+
+.city-item:last-child {
+    border-bottom: none;
+}
+
+.city-item strong {
+    color: #333;
+    display: block;
+    margin-bottom: 2px;
+    transition: color 0.2s;
+}
+
+.city-item span {
+    font-size: 12px;
+    color: #666;
+    display: block;
+    line-height: 1.4;
+    transition: color 0.2s;
+}
+
+.city-item:hover {
+    background-color: rgba(111, 66, 193, 0.08);
+}
+
+.city-item:hover strong {
+    color: var(--color-primary-dark);
+}
+
+/* Container do Mapa Interativo */
+.mapa-espaco {
+    flex: 1;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    background-color: #e5e3df; /* Cor base enquanto renderiza os blocos do mapa */
+}
+
+/* Caixas de Informação dentro dos Marcadores (Popups) */
+.popup-conteudo h3 {
+    color: var(--color-primary);
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.popup-conteudo p {
+    margin: 5px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #333;
+    text-align: left;
+}
+
+/* Integração com o Modo Escuro existente */
+body.modo-escuro .sidebar-coleta {
+    background-color: #444;
+    border-color: #555;
+    color: #ffffff;
+}
+
+body.modo-escuro .state-title {
+    background-color: #555;
+    color: var(--color-accent);
+}
+
+body.modo-escuro .state-title:hover {
+    background-color: #666;
+}
+
+body.modo-escuro .city-item {
+    border-color: #555;
+}
+
+body.modo-escuro .city-item strong {
+    color: #ffffff;
+}
+
+body.modo-escuro .city-item span {
+    color: #cccccc;
+}
+
+body.modo-escuro .city-item:hover {
+    background-color: rgba(255, 215, 0, 0.15);
+}
+
+
 /* ========================= */
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE ORIGINAL + ADICIONAIS */
 /* ========================= */
 
 @media (max-width: 900px) {
@@ -257,5 +427,21 @@ body.modo-escuro .invertido {
 
     .barra-pesquisa input {
         max-width: 180px;
+    }
+
+    /* 🆕 Responsividade específica dos itens de Coleta */
+    .layout-coleta {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .sidebar-coleta {
+        width: 100% !important;
+        height: 350px;
+    }
+    
+    .mapa-espaco {
+        height: 450px;
+        width: 100%;
     }
 }

@@ -2,128 +2,52 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Pontos de Coleta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos de Coleta - ArcelorMittal Brasil</title>
 
     <link rel="stylesheet" href="../style.css">
     
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-pegman@0.1.4/dist/leaflet-pegman.css" />
 </head>
-
-    <script src="../script.js"></script>
-<body>
+<body class="container">
 
     <header class="menu-principal">
-
         <div class="barra-pesquisa">
-            <input type="text" placeholder="Pesquisar...">
-            <button>🔍</button>
+            <input type="text" id="input-pesquisa" placeholder="Pesquisar...">
+            <button onclick="fazerBusca()">🔍</button>
         </div>
 
         <nav>
-            <a href="index.html">Quem Somos</a>
+            <a href="../index.html">Quem Somos</a>
             <a href="mundo.html">Arcelor no Mundo</a>
             <a href="sustentabilidade.html">Sustentabilidade e Inovação</a>
-            <a href="coleta.html">Pontos de Coleta</a>
+            <a href="coleta.html" style="color: var(--color-accent);">Pontos de Coleta</a>
             <a href="contato.html">Fale Conosco</a>
         </nav>
 
         <div class="botoes-direita">
-
-        <button onclick="mudarCorFundo()"
-        id="botao-tema">
-
-            Mudar Clima
-
-        </button>
-
-    </div>
-
-    </div>
-
+            <button onclick="mudarCorFundo()" id="botao-tema">Mudar Clima</button>
+        </div>
     </header>
 
-    <main>
+    <main class="layout-coleta">
+        
+        <aside class="sidebar-coleta">
+            <h3>📌 Estados e Polos</h3>
+            <div class="accordion-coleta">
+                </div>
+        </aside>
 
-        <!-- PRIMEIRO BLOCO -->
-        <section class="bloco-conteudo">
-
-            <div class="texto-institucional">
-                <h2>Quem nós somos?</h2>
-
-                <p>
-                    A ArcelorMittal é a maior produtora de aço do mundo e líder em mineração,
-                    com presença em mais de 60 países.
-                    Nossa atuação no Brasil é histórica e fundamental:
-                    impulsionamos a infraestrutura, a indústria automotiva
-                    e o agronegócio nacional.
-                </p>
-            </div>
-
-            <div class="imagem-espaco">
-                <img src="../Imagens/Imagemcurso1.jpg"
-                alt="Equipe ArcelorMittal">
-            </div>
-
-        </section>
-
-        <!-- SEGUNDO BLOCO -->
-        <section class="bloco-conteudo invertido">
-
-            <div class="texto-institucional">
-
-                <h2>Objetivos e Metas</h2>
-
-                <p>
-                    Nosso grande objetivo é liderar a jornada rumo ao
-                    Aço Verde. Temos metas globais de descarbonização,
-                    buscando reduzir as emissões de CO2 em 25% até 2030
-                    e alcançar a neutralidade de carbono.
-                </p>
-
-            </div>
-
-            <div class="imagem-espaco">
-                <img src="../imagens/Objetivos.png"
-                alt="Objetivos e Metas">
-            </div>
-
-        </section>
-
-        <!-- TERCEIRO BLOCO -->
-        <section class="bloco-conteudo">
-
-            <div class="texto-institucional">
-
-                <h2>Valores e Moral</h2>
-
-                <p>
-                    Nossa cultura é sustentada por três pilares:
-                    Segurança, Qualidade e Sustentabilidade.
-                    Operamos com ética, responsabilidade e respeito,
-                    valorizando a diversidade humana e o bem-estar social.
-                </p>
-
-            </div>
-
-            <div class="imagem-espaco">
-                <img src="../imagens/Valores.jpg"
-                alt="Valores da Empresa">
-            </div>
-
+        <section class="mapa-espaco">
+            <div id="map"></div>
         </section>
 
     </main>
 
-        </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-pegman@0.1.4/dist/leaflet-pegman.js"></script>
 
-    <script>
-
-        function mudarCorFundo() {
-
-            document.body.classList.toggle("modo-escuro")
-
-        }
-
-    </script>
-
+    <script src="../script.js"></script>
 </body>
 </html>
