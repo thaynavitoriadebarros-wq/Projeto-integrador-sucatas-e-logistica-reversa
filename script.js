@@ -311,44 +311,6 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ==========================
-// 4. PRELOADER/LOADER
-// ==========================
-const sustainabilityMessages = [
-    "Carregando com Aço Verde...",
-    "Reduzindo emissões de CO2...",
-    "Investindo em energias renováveis...",
-    "Protegendo o meio ambiente...",
-    "Rumo à neutralidade de carbono...",
-    "Compromisso com sustentabilidade...",
-    "Construindo um futuro melhor...",
-    "Transformando para o bem da natureza..."
-];
-
-let messageIndex = 0;
-
-function updateLoaderMessage() {
-    const messageEl = document.getElementById('loader-message');
-    if (messageEl) {
-        messageEl.textContent = sustainabilityMessages[messageIndex];
-        messageIndex = (messageIndex + 1) % sustainabilityMessages.length;
-    }
-}
-
-window.addEventListener('DOMContentLoaded', function() {
-    updateLoaderMessage();
-    const messageInterval = setInterval(updateLoaderMessage, 2000);
-    
-    window.addEventListener('load', function() {
-        clearInterval(messageInterval);
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-            setTimeout(function() {
-                preloader.classList.add('hidden');
-            }, 500);
-        }
-    });
-});
 
 // ==========================
 // 5. BOTÃO VOLTAR AO TOPO + LAZY LOADING + ANIMAÇÕES
@@ -412,4 +374,12 @@ window.addEventListener('DOMContentLoaded', function() {
     initScrollFeatures();
     initLazyLoading();
     initScrollAnimations();
+});
+
+// Garante que os elementos apareçam
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".fade-in, .slide-in-left, .slide-in-right")
+        .forEach(el => {
+            el.classList.add("visible");
+        });
 });

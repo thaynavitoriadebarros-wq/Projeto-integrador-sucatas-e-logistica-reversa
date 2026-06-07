@@ -10,26 +10,13 @@
 
 <body class="container">
 
-    <!-- PRELOADER -->
-    <div id="preloader" class="preloader">
-        <div class="loader-container">
-            <div class="sustainability-icons">
-                <span class="sus-icon">♻️</span>
-                <span class="sus-icon">🌍</span>
-                <span class="sus-icon">⚡</span>
-                <span class="sus-icon">💧</span>
-            </div>
-            <div class="loader-spinner"></div>
-            <p id="loader-message" class="loader-text">Carregando...</p>
-        </div>
-    </div>
-
     <header class="menu-principal">
 
-        <div class="barra-pesquisa">
-            <input type="text" placeholder="Pesquisar...">
-            <button>🔍</button>
-        </div>
+            <!-- BARRA DE PESQUISA -->
+            <div class="barra-pesquisa">
+                <input type="text" id="input-pesquisa" placeholder="Pesquisar...">
+                <button onclick="fazerBusca()">🔍</button>
+            </div>
 
         <nav>
             <a href="../index.html">Quem Somos</a>
@@ -41,16 +28,14 @@
 
         <div class="botoes-direita">
 
-        <button onclick="mudarCorFundo()"
-        id="botao-tema">
+            <button onclick="mudarCorFundo()"
+                id="botao-tema">
 
-            Mudar Clima
+                Mudar Clima
 
-        </button>
+            </button>
 
-    </div>
-
-    </div>
+        </div>
 
     </header>
 
@@ -68,7 +53,7 @@
             </div>
 
             <div class="imagem-espaco">
-                <img src="../imagens/AçoVerde.png"
+                <img src="../imagens/AcoVerde.png"
                 alt="Equipe ArcelorMittal">
             </div>
 
@@ -110,7 +95,7 @@
             </div>
 
             <div class="imagem-espaco">
-                <img src="../imagens/Açolab.png"
+                <img src="../imagens/Acolab.png"
                 alt="Valores da Empresa">
             </div>
 
@@ -152,11 +137,6 @@
     </footer>
 
     <script src="../script.js" defer></script>
-    <script>
-        function mudarCorFundo() {
-            document.body.classList.toggle("modo-escuro")
-        }
-    </script>
 
 </body>
 </html>
